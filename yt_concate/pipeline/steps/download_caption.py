@@ -19,5 +19,4 @@ class DownloadCaptions(Step):
             with open(utils.get_captions_dir(url), 'w', encoding='utf-8') as f:
                 for i in srt:
                     f.write("{}\n".format(i))
-
             f.close()
