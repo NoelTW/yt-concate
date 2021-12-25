@@ -10,8 +10,12 @@ class DownloadCaptions(Step):
             if utils.caption_exists(url):
                 print(video_id, ' already downloaded')
                 continue
+            try:
+                srt = YouTubeTranscriptApi.get_transcript(video_id, languages=['en'])
+            except:
+                print('KeyError when downloading', url)
+                continue
 
-            srt = YouTubeTranscriptApi.get_transcript(video_id, languages=['en-GB'])
             with open(utils.get_captions_dir(url), 'w', encoding='utf-8') as f:
                 for i in srt:
                     f.write("{}\n".format(i))

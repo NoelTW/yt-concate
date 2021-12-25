@@ -13,9 +13,10 @@ class Utils:
     def get_video_list_file_path(self, chennal_id):
         return os.path.join(DOWNLOAD_DIR, chennal_id + '.txt')
 
-    def video_list_file_exist(self,chennal_id):
+    def video_list_file_exist(self, chennal_id):
         dir = self.get_video_list_file_path(chennal_id)
         return os.path.exists(dir) and os.path.getsize(dir) > 0
+
     @staticmethod
     def get_video_id(url):
         video_id = url.split('watch?v=')[-1]

@@ -9,6 +9,7 @@ class GetVideoList(Step):
     def process(self, data, inputs, utils):
         channel_id = inputs["channel_id"]
         if utils.video_list_file_exist(channel_id):
+            print('Found existing video list for channel', channel_id)
             return self.read_file(utils.get_video_list_file_path(channel_id))
 
         api_key = API_KEY
@@ -27,7 +28,6 @@ class GetVideoList(Step):
             for i in resp['items']:
                 if i['id']['kind'] == "youtube#video":
                     video_links.append(base_video_url + i['id']['videoId'])
-
             try:
                 next_page_token = resp['nextPageToken']
                 url = first_url + '&pageToken={}'.format(next_page_token)
