@@ -10,7 +10,7 @@ class DownloadCaptions(Step):
             video_id = yt.id
             captions_dir = yt.captions_dir
             if utils.caption_exists(yt):
-                print(video_id, ' already downloaded')
+                print(video_id, 'captions already downloaded')
                 continue
             try:
                 srt = YouTubeTranscriptApi.get_transcript(video_id, languages=['en'])

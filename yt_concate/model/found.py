@@ -5,4 +5,12 @@ class Found:
         self.time = time
 
     def __str__(self):
-        return f'<Found>'
+        return f'<Found{self.yt}>'
+
+    def __repr__(self):
+        content = ' : '.join([
+            'yt= ' + str(self.yt),
+            'caption= ' + str(self.caption),
+            'time= ' + str(self.time),
+        ])
+        return content

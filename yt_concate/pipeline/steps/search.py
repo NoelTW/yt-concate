@@ -12,9 +12,7 @@ class Search(Step):
             for caption in yt.captions:
                 if key_word in caption:
                     time = yt.captions[caption]
-                    f = Found(yt.id, caption, time)
+                    f = Found(yt, caption, time)
                     found.append(f)
-
-        print(found)
         return found
 

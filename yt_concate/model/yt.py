@@ -10,6 +10,7 @@ class YT:
         self.id = self.get_video_id()
         self.captions_dir = self.get_captions_dir()
         self.captions = None
+        self.videos_dir = self.get_videos_dir()
 
     def __str__(self):
         return f'<{self.id} exist>'
@@ -23,5 +24,5 @@ class YT:
     def get_captions_dir(self):
         return os.path.join(CAPTION_DIR, self.id + '.txt')
 
-    def get_video_dir(self):
-        return os.path.join(VIDEO_DIR, self.id + '.txt')
+    def get_videos_dir(self):
+        return os.path.join(VIDEO_DIR, self.id + '.mp4')
