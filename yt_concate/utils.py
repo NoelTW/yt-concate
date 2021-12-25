@@ -18,19 +18,12 @@ class Utils:
         return os.path.exists(dir) and os.path.getsize(dir) > 0
 
     @staticmethod
-    def get_video_id(url):
-        video_id = url.split('watch?v=')[-1]
-        return video_id
-
-    def get_captions_dir(self, url):
-        return os.path.join(CAPTION_DIR, self.get_video_id(url) + '.txt')
-
-    @staticmethod
     def create_dir():
         os.makedirs(DOWNLOAD_DIR, exist_ok=True)
         os.makedirs(CAPTION_DIR, exist_ok=True)
         os.makedirs(VIDEO_DIR, exist_ok=True)
 
-    def caption_exists(self, url):
-        dir = self.get_captions_dir(url)
+    @staticmethod
+    def caption_exists(yt):
+        dir = yt.captions_dir
         return os.path.exists(dir) and os.path.getsize(dir) > 0
