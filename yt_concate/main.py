@@ -7,6 +7,7 @@ from yt_concate.pipeline.steps.download_caption import DownloadCaptions
 from yt_concate.pipeline.steps.read_caption import ReadCaption
 from yt_concate.pipeline.steps.search import Search
 from yt_concate.pipeline.steps.download_videos import DownloadVideos
+from yt_concate.pipeline.steps.edit_videos import EditVideos
 from yt_concate.pipeline.steps.postflight import PostFlight
 
 CHANNEL_ID = "UCTnK3UFznEB5bd4vDEFMM4A"
@@ -21,12 +22,14 @@ def main():
         ReadCaption(),
         Search(),
         DownloadVideos(),
+        EditVideos(),
         PostFlight(),
     ]
 
     inputs = {
         'channel_id': CHANNEL_ID,
         'keywords': 'fantastic',
+        'limit': 20,
     }
 
     utils = Utils()
